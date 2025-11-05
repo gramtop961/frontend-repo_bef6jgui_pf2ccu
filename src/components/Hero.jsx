@@ -1,73 +1,81 @@
 import React from 'react';
-import Spline from '@splinetool/react-spline';
-import { Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Spline from '@splinetool/react-spline';
+import { Sparkles, ShieldCheck, ArrowRight } from 'lucide-react';
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section id="home" className="relative h-[92vh] w-full overflow-hidden">
-      {/* Spline full-width cover */}
+    <section className="relative h-[92vh] w-full overflow-hidden">
+      {/* Spline background */}
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/zhZFnwyOYLgqlLWk/scene.splinecode"
+          scene="https://prod.spline.design/qQUip0dJPqrrPryE/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
       </div>
 
-      {/* Soft gradient overlay to improve text contrast without blocking interaction */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/30 to-white" />
+      {/* Gradient and vignette overlays - non-blocking */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-indigo-600/10 via-slate-950/30 to-slate-950/80" />
+      <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_40%,black,transparent)]" />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-center px-6">
-        <motion.span
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1 text-xs font-medium text-gray-700 shadow backdrop-blur"
-        >
-          <Rocket className="h-4 w-4 text-indigo-600" /> Interactive • Minimal • Modern
-        </motion.span>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.7, ease: 'easeOut' }}
-          className="mt-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl"
-        >
-          Portfolio experiences that move people
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
-          className="mt-4 max-w-2xl text-base text-gray-700 sm:text-lg"
-        >
-          I craft fast, accessible interfaces with purposeful motion. Explore selected work and get in touch to collaborate.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.7, ease: 'easeOut' }}
-          className="mt-6 flex flex-wrap gap-3"
-        >
-          <a
-            href="#projects"
-            className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      {/* Foreground content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 h-full flex items-center">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 shadow-lg backdrop-blur"
           >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="rounded-lg bg-white/90 px-5 py-2.5 text-sm font-semibold text-gray-900 shadow transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+            <Sparkles className="size-3.5 text-cyan-300" />
+            <span className="tracking-wide">Available for freelance & full-time</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05, duration: 0.7 }}
+            className="mt-4 text-4xl sm:text-6xl font-bold leading-tight tracking-tight"
           >
-            Get in Touch
-          </a>
-        </motion.div>
+            Futuristic, polished experiences for the modern web
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.7 }}
+            className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl"
+          >
+            I blend clean UI engineering, motion design, and 3D to craft products that feel alive. Focused on
+            performance, accessibility, and delightful details.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.7 }}
+            className="mt-8 flex flex-col sm:flex-row items-center gap-3"
+          >
+            <a
+              href="#projects"
+              className="group inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 ring-1 ring-white/10 transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            >
+              View Projects
+              <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-slate-900/60 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur hover:bg-slate-900/80 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            >
+              Get in Touch
+            </a>
+            <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400 ml-2">
+              <ShieldCheck className="size-4 text-emerald-400" />
+              <span>Performance-first • A11y • PWA-ready</span>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

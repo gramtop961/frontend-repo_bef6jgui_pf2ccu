@@ -1,93 +1,106 @@
 import React from 'react';
-import { Mail, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Mail, Github, Linkedin } from 'lucide-react';
 
-const Contact = () => {
+export default function Contact() {
   return (
-    <section id="contact" className="bg-white py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-8 flex items-center gap-3">
-          <Mail className="h-6 w-6 text-indigo-600" />
-          <h2 className="text-2xl font-bold text-gray-900">Contact</h2>
+    <section id="contact" className="relative py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-10">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Let’s build something great</h2>
+          <p className="mt-2 text-slate-400 max-w-2xl">
+            Whether you have a specific project or just want to chat ideas, my inbox is open.
+          </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2">
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <motion.form
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
             onSubmit={(e) => e.preventDefault()}
+            className="lg:col-span-2 rounded-xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur shadow-xl"
           >
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-              <input
-                type="text"
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 hover:border-gray-400"
-                placeholder="Jane Doe"
-                aria-label="Your name"
-                required
-              />
-            </label>
-            <label className="mt-4 block text-sm font-medium text-gray-700">
-              Email
-              <input
-                type="email"
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 hover:border-gray-400"
-                placeholder="jane@example.com"
-                aria-label="Your email"
-                required
-              />
-            </label>
-            <label className="mt-4 block text-sm font-medium text-gray-700">
-              Message
-              <textarea
-                className="mt-1 h-28 w-full resize-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 hover:border-gray-400"
-                placeholder="How can I help?"
-                aria-label="Your message"
-                required
-              />
-            </label>
-            <button
-              type="submit"
-              className="mt-6 w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              Send Message
-            </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm text-slate-300 mb-1" htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  className="w-full rounded-md bg-slate-950/60 px-3 py-2 text-sm text-white ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder:text-slate-500"
+                  placeholder="Jane Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-slate-300 mb-1" htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  className="w-full rounded-md bg-slate-950/60 px-3 py-2 text-sm text-white ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder:text-slate-500"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-sm text-slate-300 mb-1" htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  className="w-full rounded-md bg-slate-950/60 px-3 py-2 text-sm text-white ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder:text-slate-500"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 ring-1 ring-white/10 transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              >
+                Send message
+              </button>
+            </div>
           </motion.form>
 
-          <motion.div
+          <motion.aside
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col justify-center gap-4 text-gray-700"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="rounded-xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur shadow-xl"
           >
-            <p>
-              Prefer email? Reach me directly at
-              <a href="mailto:hello@example.com" className="ml-1 font-medium text-indigo-600 underline">
-                hello@example.com
-              </a>
-            </p>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com"
-                className="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-gray-50"
-              >
-                <Github className="h-4 w-4" /> GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com"
-                className="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-gray-50"
-              >
-                <Linkedin className="h-4 w-4" /> LinkedIn
-              </a>
+            <div className="space-y-4 text-sm text-slate-300">
+              <p>
+                Prefer email or social? I usually respond within 24 hours. Let’s find a time that works for you.
+              </p>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="mailto:you@example.com"
+                  className="inline-flex items-center gap-2 rounded-md bg-slate-950/60 px-3 py-2 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                >
+                  <Mail className="size-4 text-cyan-300" />
+                  you@example.com
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 rounded-md bg-slate-950/60 px-3 py-2 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                >
+                  <Github className="size-4" />
+                  GitHub
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 rounded-md bg-slate-950/60 px-3 py-2 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                >
+                  <Linkedin className="size-4" />
+                  LinkedIn
+                </a>
+              </div>
             </div>
-          </motion.div>
+          </motion.aside>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
