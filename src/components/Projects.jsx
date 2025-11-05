@@ -27,12 +27,18 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mb-10"
+        >
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Featured Projects</h2>
           <p className="mt-2 text-slate-400 max-w-2xl">
             A selection of work that balances product value with craft. More available on request.
           </p>
-        </div>
+        </motion.div>
 
         <motion.div
           initial="hidden"
@@ -46,6 +52,7 @@ export default function Projects() {
               key={p.title}
               variants={{ hidden: { y: 18, opacity: 0 }, show: { y: 0, opacity: 1 } }}
               whileHover={{ y: -6 }}
+              whileTap={{ scale: 0.995 }}
               className="group relative overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 backdrop-blur shadow-xl"
             >
               <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
@@ -57,14 +64,14 @@ export default function Projects() {
                     <a
                       href="#"
                       aria-label="Open project"
-                      className="inline-flex size-9 items-center justify-center rounded-md bg-slate-950/60 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="inline-flex size-9 items-center justify-center rounded-md bg-slate-950/60 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     >
                       <Globe className="size-4" />
                     </a>
                     <a
                       href="#"
                       aria-label="View source"
-                      className="inline-flex size-9 items-center justify-center rounded-md bg-slate-950/60 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="inline-flex size-9 items-center justify-center rounded-md bg-slate-950/60 ring-1 ring-white/10 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     >
                       <Github className="size-4" />
                     </a>
@@ -80,7 +87,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-5 inline-flex items-center text-sm font-medium text-cyan-300">
+                <div className="mt-5 inline-flex items-center text-sm font-medium text-orange-300">
                   Explore case study
                   <ArrowUpRight className="ml-1 size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
